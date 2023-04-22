@@ -6,13 +6,13 @@
 
 <!-- Material Design Lite https://getmdl.io -->
 <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-<link rel="stylesheet" href="https://code.getmdl.io/1.2.0/material.indigo-pink.min.css">
+<link rel="stylesheet" href="https://code.getmdl.io/1.2.0/material.indigo-blue.min.css">
 <script defer src="https://code.getmdl.io/1.2.0/material.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <!-- Contains dictionary of characters to morse code -->
-<script defer src="morse_code_dict.js"></script>
-<script src="Tone.min.js"></script>
+<script defer src="./morse_code_dict.js"></script>
+<script src="./Tone.min.js"></script>
 
 <script defer type="text/javascript">
 
@@ -30,12 +30,12 @@ function getMorse(message) {
 
 // All times in seconds
 var dot_time = 0.050;
-var dash_time = dot_time*3;
-var inter_elem_time = dot_time;
-var space_time = dot_time*7;
+var dash_time = dot_time*5;
+var inter_elem_time = dot_time*10;
+var space_time = dot_time*20;
 
 // Initial delay before starting morse code sequence
-var initial_delay = 0.1;
+var initial_delay = 0.5;
 
 // Track whether morse code is running
 var running = false;
@@ -171,7 +171,7 @@ function play_morse_sequence() {
     }
     // Add message text to screen
     seq.push({"time":t, "func":tone_addMsgText, "msg_char":msg[i]});
-    
+
   }
   seq.push({"time":t, "func":tone_fin});
 
